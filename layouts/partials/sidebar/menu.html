@@ -21,6 +21,13 @@
                     {{ end }}
                 {{ end }}
             {{ end }}
+            {{/*  Hardcode taxonomy support  */}}
+            {{ if eq ("series") (lower (strings.TrimSuffix "/" (strings.TrimPrefix "/" $menu_item.URL)))}}
+                <li class="heading"> <a href="/series/"> {{ $menu_item.Name }} </a> </li>
+            {{ end }}
+            {{ if eq ("tags") (lower (strings.TrimSuffix "/" (strings.TrimPrefix "/" $menu_item.URL)))}}
+                <li class="heading"> <a href="/tags/"> {{ $menu_item.Name }} </a> </li>
+            {{ end }}
         {{ end }}
 
     </ul>
